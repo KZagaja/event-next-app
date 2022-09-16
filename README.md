@@ -1,34 +1,16 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Basics of using the app:
 
-## Getting Started
+1. Create .env file
+2. In .env file add new entry for DATABASE_URL=/insert your connection string here/
+3. DB used for this project is Postgres and as such it would be advised to use only postgres connection string for the project.
+4. Use ```yarn install``` or ```yarn``` command to install all required packages.
+5. Use ```npx prisma``` command to make sure that you have prisma client installed.
+6. Use ```npx prisma migrate dev``` to make migrations to DB (essential for server side to work).
+7. We can finally start using the app with ```yarn dev``` command. The app should open up at http://localhost:3000
 
-First, run the development server:
+# The mind behind technologies used:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. As such this app is managing mostly server state and form to create events. I have decided to use only React Query because it's the best tool to manage server state in easy and yet fast manner.
+2. There was no need to preserve input states with any additional tool that would just make the app bloated.
+3. Thanks to mutations in React Query the events are being added seemlessly.
+4. The tests for backend and front end are written in different libraries. ```yarn cypress``` runs frontend tests in headless cypress. ```yarn jest``` runs unit tests created in jest.

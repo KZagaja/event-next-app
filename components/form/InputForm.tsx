@@ -1,11 +1,4 @@
-import {
-  ChangeEvent,
-  FC,
-  SyntheticEvent,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { FC, useRef, useState } from "react";
 import { InputText } from "primereact/inputtext";
 import { Calendar } from "primereact/calendar";
 import { Button } from "primereact/button";
@@ -146,6 +139,7 @@ export const InputForm: FC = () => {
             name="eventDate"
             control={control}
             rules={{ required: true }}
+            defaultValue={new Date()}
             render={({ field, fieldState }) => (
               <Calendar
                 {...field}

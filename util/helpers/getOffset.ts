@@ -11,5 +11,9 @@ export const getOffset = (page: string | string[] | undefined) => {
     }
   }
 
+  if (isNaN(offset)) {
+    return 0;
+  }
+
   return offset;
 };
